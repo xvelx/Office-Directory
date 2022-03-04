@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="titleEmployeeId">Employee ID: %s</string>
+    <string name="titleEmailId">Email Id: %s</string>
+
+    <string name="fullName">%s %s</string>
+
+    <string name="emailAppChooser">Choose App</string>
+    <string name="sendEmail">E-Mail</string>
+</resources>

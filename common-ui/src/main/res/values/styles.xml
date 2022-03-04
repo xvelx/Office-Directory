@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Configurable Fonts -->
+    <item name="fontPrimary" type="font">@font/acme</item>
+    <item name="fontSecondary" type="font">@font/amaranth</item>
+
+    <!-- Page Styles -->
+    <dimen name="pagePaddingDefault">16dp</dimen>
+    <dimen name="elementMarginDefault">5dp</dimen>
+    <dimen name="elementMarginSecondary">5dp</dimen>
+
+    <!-- Configurable Colors Colors -->
+    <color name="primaryColor">#C40202</color>
+    <color name="secondaryColor">#FF018786</color>
+
+    <!-- Texts -->
+    <dimen name="headerTextSize">20sp</dimen>
+    <dimen name="subHeaderTextSize">16sp</dimen>
+    <dimen name="defaultTextSize">14sp</dimen>
+
+    <!-- Styles -->
+    <style name="HeadingTextView">
+        <item name="fontFamily">@font/fontPrimary</item>
+        <item name="android:textSize">@dimen/headerTextSize</item>
+        <item name="android:textColor">@color/primaryColor</item>
+    </style>
+
+    <style name="SubHeaderTextView">
+        <item name="fontFamily">@font/fontSecondary</item>
+        <item name="android:textSize">@dimen/subHeaderTextSize</item>
+        <item name="android:textColor">@color/secondaryColor</item>
+    </style>
+
+    <style name="NormalTextView">
+        <item name="fontFamily">@font/fontSecondary</item>
+        <item name="android:textSize">@dimen/defaultTextSize</item>
+    </style>
+</resources>

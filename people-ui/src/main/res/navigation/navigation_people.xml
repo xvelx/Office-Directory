@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_people"
+    app:startDestination="@id/employeeListFragment">
+
+    <fragment
+        android:id="@+id/employeeListFragment"
+        android:name="com.vm.office.people_ui.fragments.EmployeeListFragment"
+        tools:layout="@layout/fragment_employee_list">
+        <action
+            android:id="@+id/toEmployeeDetail"
+            app:destination="@id/employeeDetailFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/employeeDetailFragment"
+        android:name="com.vm.office.people_ui.fragments.EmployeeDetailFragment"
+        tools:layout="@layout/fragment_employee_detail">
+        <argument
+            android:name="employeeDetail"
+            app:argType="com.vm.office.people_ui.states.data.EmployeeUiData" />
+    </dialog>
+</navigation>

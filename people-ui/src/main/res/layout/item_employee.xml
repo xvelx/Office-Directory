@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="employee"
+            type="com.vm.office.people_ui.states.data.EmployeeUiData" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Employee.List.PrimaryContainer"
+        android:contentDescription="@{@string/accessibilityEmployeeBasicDescription(employee.firstName, employee.lastName, employee.jobTitle)}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/Employee.List.SecondaryContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/employeeProfilePhoto"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:imageUrl="@{employee.avatarUrl}"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/employeeNameTextView"
+                style="@style/HeadingTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/elementMarginDefault"
+                android:text="@{@string/fullName(employee.firstName, employee.lastName)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/employeeProfilePhoto"
+                tools:text="Employee Name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/employeeDesignationView"
+                style="@style/SubHeaderTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/elementMarginDefault"
+                android:text="@{employee.jobTitle}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/employeeNameTextView"
+                tools:text="Job Title" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="employee"
+            type="com.vm.office.people_ui.states.data.EmployeeUiData" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/pagePaddingDefault"
+        app:cardCornerRadius="@dimen/employeeDetailCardRadius"
+        app:cardElevation="@dimen/employeeDetailCardElevation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@{@string/accessibilityEmployeeDetailDescription(employee.firstName, employee.lastName, employee.jobTitle, employee.employeeId, employee.emailId)}"
+            android:padding="@dimen/pagePaddingDefault">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/employeeName"
+                style="@style/HeadingTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/elementMarginDefault"
+                android:importantForAccessibility="no"
+                android:text="@{@string/fullName(employee.firstName, employee.lastName)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/employeeJobTitle"
+                style="@style/SubHeaderTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:text="@{employee.jobTitle}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/employeeName" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/employeeId"
+                style="@style/SubHeaderTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/elementMarginDefault"
+                android:importantForAccessibility="no"
+                android:text="@{@string/titleEmployeeId(employee.employeeId)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/employeeJobTitle" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/employeeEmailId"
+                style="@style/SubHeaderTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/elementMarginDefault"
+                android:fontFamily="@font/amaranth"
+                android:importantForAccessibility="no"
+                android:text="@{@string/titleEmailId(employee.emailId)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/employeeId" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sendEmailButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/elementMarginDefault"
+                android:contentDescription="@{@string/accessibilitySendMailDescription(employee.emailId)}"
+                android:text="@string/sendEmail"
+                android:textAppearance="@style/SubHeaderTextView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/employeeEmailId" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

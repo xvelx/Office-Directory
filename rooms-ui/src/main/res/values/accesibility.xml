@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibilityRoomItemDescription">Room ID:%s, %s, Max Occupancy:%s</string>
+    <string name="accessibilityRoomOccupiedDescription">is occupied</string>
+    <string name="accessibilityRoomAvailableDescription">is Available</string>
+</resources>

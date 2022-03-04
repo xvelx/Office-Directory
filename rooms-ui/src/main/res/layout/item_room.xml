@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="room"
+            type="com.vm.office.room_ui.state.data.RoomUiData" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Room.List.PrimaryContainer"
+        android:contentDescription="@{@string/accessibilityRoomItemDescription(room.roomId, room.isOccupied ? @string/accessibilityRoomOccupiedDescription : @string/accessibilityRoomAvailableDescription, room.maxOccupancy)}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/Room.List.SecondaryContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/roomPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:importantForAccessibility="no"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_room" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/roomIdView"
+                style="@style/HeadingTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:text="@{@string/roomId(room.roomId)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/roomPhoto"
+                tools:text="Employee Name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/roomOccupancy"
+                style="@style/SubHeaderTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                android:text="@{@string/roomMaxOccupancy(room.maxOccupancy)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/roomIdView"
+                tools:text="Job Title" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/roomStatusView"
+                style="@style/NormalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                android:text="@{room.occupied ? @string/roomOccupied : @string/roomFree}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/roomOccupancy"
+                tools:text="Job Title" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

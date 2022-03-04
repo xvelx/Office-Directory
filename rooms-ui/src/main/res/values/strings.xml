@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="roomOccupied">Occupied</string>
+    <string name="roomFree">Available</string>
+    <string name="roomId">Room Id: %s</string>
+    <string name="roomMaxOccupancy">Max Occupancy: %s</string>
+</resources>

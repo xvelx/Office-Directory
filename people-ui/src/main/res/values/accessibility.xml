@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibilityEmployeeBasicDescription">Employee Name:%s %s, Job Title:%s</string>
+    <string name="accessibilityEmployeeDetailDescription">Employee Name:%s %s, Job Title:%s, Employee ID:%s, Email ID: %s</string>
+    <string name="accessibilitySendMailDescription">Send E-Mail to:%s</string>
+</resources>

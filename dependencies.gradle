@@ -1,0 +1,67 @@
+ext {
+    versionManagement = new VersionManagement()
+}
+
+class VersionManagement {
+
+    // SDK
+    final def compileSdkVersion = 32
+    final def minSdkVersion = 19
+    final def targetSdkVersion = 32
+
+    //region Test
+    // App Dependencies
+
+    // Common
+    final def coreKtxVersion = "1.7.0"
+    final def appCompatVersion = "1.4.1"
+    final def materialVersion = "1.5.0"
+    final def constraintLayoutVersion = "2.1.3"
+
+    // Hilt
+    final def hiltVersion = "2.38.1"
+
+    // Navigation
+    final def navigationVersion = "2.5.0-alpha03"
+
+    // Multi-Dex Version
+    final def multidexVersion = "2.0.1"
+
+    // Lifecycle
+    final def lifecycleVersion = "2.5.0-alpha01"
+
+    // ktx
+    final def activityKtxVersion = "1.4.0"
+    final def fragmentKtxVersion = "1.4.1"
+
+    // Coroutines
+    final def coroutinesAndroidVersion = "1.6.0"
+
+    // Retrofit
+    final def retrofitVersion = "2.9.0"
+
+    // Okhttp Interceptors
+    final def okHttpLoggingInterceptor = "4.9.3"
+
+    // Picasso
+    final def picassoVersion = "2.71828"
+
+    //endregion
+
+    //region Test
+    // Test Dependencies
+
+    // arch
+    final def archVersion = "2.1.0"
+
+    // Junit
+    final def junitVersion = "4.13.2"
+
+    // Mockk
+    final def mockkVersion = "1.12.3"
+
+    // Assert J
+    final def assertJVersion = "3.14.0"
+
+    //endregion
+}

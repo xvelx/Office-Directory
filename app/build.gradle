@@ -1,0 +1,106 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+def ignorableVariants = [
+        "prodDebug",
+        "betaDebug",
+        "devRelease"
+]
+
+android {
+    compileSdk versionManagement.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.vm.office.directory"
+        minSdk versionManagement.minSdkVersion
+        targetSdk versionManagement.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    flavorDimensions "office_directory"
+
+    productFlavors {
+        dev {
+            dimension "office_directory"
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+        }
+        qa {
+            dimension "office_directory"
+            applicationIdSuffix ".qa"
+            versionNameSuffix "-qa"
+        }
+        beta {
+            dimension "office_directory"
+            applicationIdSuffix ".beta"
+            versionNameSuffix "-beta"
+        }
+        prod {
+            dimension "office_directory"
+        }
+    }
+
+    variantFilter { variant ->
+        variant.setIgnore(ignorableVariants.contains(variant.name))
+    }
+}
+
+dependencies {
+
+    implementation "androidx.core:core-ktx:${versionManagement.coreKtxVersion}"
+    implementation "androidx.appcompat:appcompat:${versionManagement.appCompatVersion}"
+    implementation "com.google.android.material:material:${versionManagement.materialVersion}"
+    implementation "androidx.constraintlayout:constraintlayout:${versionManagement.constraintLayoutVersion}"
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:${versionManagement.hiltVersion}"
+    kapt "com.google.dagger:hilt-compiler:${versionManagement.hiltVersion}"
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:${versionManagement.navigationVersion}"
+    implementation "androidx.navigation:navigation-ui-ktx:${versionManagement.navigationVersion}"
+
+    // MultiDex
+    implementation "androidx.multidex:multidex:${versionManagement.multidexVersion}"
+
+    // OkHttp Interceptor
+    debugImplementation "com.squareup.okhttp3:logging-interceptor:${versionManagement.okHttpLoggingInterceptor}"
+
+    implementation project(":people-ui")
+    implementation project(":rooms-ui")
+
+    testImplementation "junit:junit:${versionManagement.junitVersion}"
+
+    // Test helpers for LiveData
+    testImplementation "androidx.arch.core:core-testing:${versionManagement.archVersion}"
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}

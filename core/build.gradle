@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+
+    // Hilt
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk versionManagement.compileSdkVersion
+
+    defaultConfig {
+        minSdk versionManagement.minSdkVersion
+        targetSdk versionManagement.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:${versionManagement.hiltVersion}"
+    kapt "com.google.dagger:hilt-compiler:${versionManagement.hiltVersion}"
+
+    // Retrofit
+    api "com.squareup.retrofit2:retrofit:${versionManagement.retrofitVersion}"
+    api "com.squareup.retrofit2:converter-gson:${versionManagement.retrofitVersion}"
+
+    // Coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versionManagement.coroutinesAndroidVersion}"
+
+    testImplementation "junit:junit:${versionManagement.junitVersion}"
+    testImplementation "io.mockk:mockk:${versionManagement.mockkVersion}"
+    testImplementation "org.assertj:assertj-core:${versionManagement.assertJVersion}"
+}
