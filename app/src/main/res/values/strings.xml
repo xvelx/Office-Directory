@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Lloyds Office Directory</string>
+    <string name="app_name">Office Directory</string>
+    <string name="drawer_menu_item_rooms">Rooms</string>
+    <string name="drawer_menu_item_people">People</string>
 </resources>

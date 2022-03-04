@@ -5,11 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.VisibleForTesting
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.vm.office.common_ui.fragments.BaseFragment
+import com.vm.office.common_ui.fragments.SearchFragment
 import com.vm.office.common_ui.state.UiState
 import com.vm.office.common_ui.utils.handleUiState
 import com.vm.office.room_ui.R
@@ -23,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * Presents all the room list to the user.
  */
 @AndroidEntryPoint
-class RoomListFragment : BaseFragment<FragmentRoomListBinding>() {
+class RoomListFragment : SearchFragment<FragmentRoomListBinding>() {
 
     private val roomsViewModel: RoomsViewModel by activityViewModels()
 
@@ -37,24 +36,11 @@ class RoomListFragment : BaseFragment<FragmentRoomListBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        configureSearchView()
         configureRoomListView()
     }
 
-    private fun configureSearchView() {
-        viewBinding.roomSearchView.setOnQueryTextListener(object :
-            SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean = false
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                if (newText != null) {
-                    roomsViewModel.searchRooms(newText)
-                    return true
-                }
-
-                return false
-            }
-        })
+    override fun onItemSearch(query: String) {
+        roomsViewModel.searchRooms(query)
     }
 
     private fun configureRoomListView() {

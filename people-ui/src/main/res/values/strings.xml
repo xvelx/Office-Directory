@@ -7,4 +7,5 @@
 
     <string name="emailAppChooser">Choose App</string>
     <string name="sendEmail">E-Mail</string>
+    <string name="employee_search_title">Search</string>
 </resources>
